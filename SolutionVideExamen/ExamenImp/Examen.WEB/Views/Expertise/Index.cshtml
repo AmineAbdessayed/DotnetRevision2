@@ -1,0 +1,69 @@
+﻿@model IEnumerable<Examen.ApplicationCore.Domain.Expertise>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+<fieldset>
+
+
+    <legend>Search By</legend>
+    <form asp-action="index">
+        <label>type assurance</label>
+        <input type="text" name="filter"/>
+        <input type="submit" name="Search"/>
+    </form>
+</fieldset>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.DateExpertise)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.AvisTechnique)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.Duree)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.ExpertFk)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.SinistreFk)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.DateExpertise)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.AvisTechnique)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.Duree)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.ExpertFk)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.SinistreFk)
+            </td>
+            <td>
+                @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
+                @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
+            </td>
+        </tr>
+}
+    </tbody>
+</table>
